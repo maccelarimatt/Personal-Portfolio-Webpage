@@ -37,6 +37,7 @@ export const AccentProvider = ({ children }: AccentProviderProps) => {
   return <AccentContext.Provider value={value}>{children}</AccentContext.Provider>;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAccent = () => {
   const ctx = useContext(AccentContext);
   if (!ctx) {

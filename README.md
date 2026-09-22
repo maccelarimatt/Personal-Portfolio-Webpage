@@ -1,43 +1,58 @@
 # Matthew Maccelari – Portfolio
 
-Production-ready personal portfolio built with React, TypeScript, Vite, Tailwind CSS, Framer Motion, and React Router. It ships as a static SPA suitable for Cloudflare Pages.
+Personal portfolio built with React, TypeScript, Vite, Tailwind CSS, Framer Motion and React Router. It builds to a fully static single-page app in `dist/` and is hosted on Cloudflare (Workers static assets).
 
 ## Getting Started
 
 ```bash
 npm install
-npm run dev     # local dev server
-npm run build   # production build -> dist/
-npm run preview # preview the built site locally
+npm run dev      # local dev server (Vite)
+npm run build    # production build -> dist/
+npm run preview  # preview the built site with Vite
+npm run cf:dev   # build, then serve dist/ with Cloudflare's runtime (wrangler dev)
+npm run deploy   # build, then deploy to Cloudflare
 ```
 
-## Deploying to Cloudflare Pages
+## Deploying to Cloudflare
 
-- Build command: `npm run build`
-- Output directory: `dist`
-- Framework preset: `None` (pure Vite SPA)
+Cloudflare config lives in `wrangler.jsonc`. It serves `dist/` as static assets, with `not_found_handling: "single-page-application"` so client-side routes like `/about` work on refresh. `public/_headers` adds security headers and long-lived caching for hashed assets.
 
-## Customization Notes
+### Option A: automatic deploys from GitHub (recommended)
 
-- **Accent palette toggle:** Controlled in `src/context/AccentContext.tsx` and CSS variables in `src/index.css`. Swap the hex values to your preferred palette.
-- **Data-driven content:** Edit `src/data/projects.ts`, `src/data/papers.ts`, and `src/data/competitions.ts` to change displayed items. Education/skills live in `src/data/profile.ts`.
-- **CV download:** Replace `public/cv.pdf` with your actual CV.
-- **Branding & meta:** Update `index.html` (title/description) and social links inside `src/components/Footer.tsx` and `src/components/Navbar.tsx`.
+1. Push this repo to GitHub.
+2. In the Cloudflare dashboard go to **Workers & Pages → Create → Import a repository** and pick this repo.
+3. Build command: `npm run build`. Deploy command: `npx wrangler deploy` (the defaults Cloudflare detects).
+4. Every push to `main` now rebuilds and redeploys. The site is live at `https://matthew-maccelari-portfolio.<your-subdomain>.workers.dev`.
+
+### Option B: deploy from your machine
+
+```bash
+npx wrangler login   # one-time, opens a browser
+npm run deploy
+```
+
+### Custom domain (optional)
+
+In the Worker's **Settings → Domains & Routes → Add → Custom domain**, enter a domain whose DNS is managed by Cloudflare. HTTPS certificates are issued automatically.
+
+## Editing Content
+
+All content is data-driven:
+
+- `src/data/profile.ts` – name, contact links, summary, stats, education, experience, outreach, skills
+- `src/data/projects.ts` – projects and filter categories
+- `src/data/papers.ts` – publications and their status
+- `src/data/competitions.ts` – achievements and awards
+- `public/cv.pdf` – downloadable CV (replace the file to update it)
 
 ## Project Structure
 
 - `src/components` – Reusable UI (navbar, cards, buttons, timeline, etc.)
 - `src/layouts` – Shared layout shell with header/footer
-- `src/pages` – Route pages (Home, About, Projects, Papers, Competitions, Contact)
-- `src/data` – Data sources for projects, papers, competitions, profile
+- `src/pages` – Route pages (Home, About, Projects, Research, Achievements, Contact)
+- `src/data` – Content sources
 - `src/context` – Accent palette toggle context
 
-## Design System
+## Contact Form
 
-- Tailwind configured in `tailwind.config.js` with dark theme defaults and glassmorphism-ready utilities.
-- Base styles and CSS variables live in `src/index.css` (backgrounds, gradients, accent colors, typography).
-- Animations and page transitions use Framer Motion (`src/components/PageTransition.tsx` and per-page motion elements).
-
-## Contact
-
-The contact form is front-end only and shows a “message sent (demo)” toast. Swap the mailto/email values to your own to receive messages directly.
+The site is static, so the contact form opens the visitor's email client with a pre-filled message addressed to the email in `src/data/profile.ts`.

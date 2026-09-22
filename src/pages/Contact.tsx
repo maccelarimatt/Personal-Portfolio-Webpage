@@ -5,6 +5,7 @@ import type { FormEvent } from 'react';
 import Button from '../components/Button';
 import PageTransition from '../components/PageTransition';
 import Section from '../components/Section';
+import { profile } from '../data/profile';
 
 interface FormState {
   name: string;
@@ -30,6 +31,12 @@ const ContactPage = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!validate()) return;
+    const subject = encodeURIComponent(`Portfolio enquiry from ${form.name}`);
+    const body = encodeURIComponent(`${form.message}
+
+${form.name}
+${form.email}`);
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
     setSent(true);
     setTimeout(() => setSent(false), 3200);
     setForm({ name: '', email: '', message: '' });
@@ -40,7 +47,7 @@ const ContactPage = () => {
       <Section
         title="Contact"
         eyebrow="Let's talk"
-        description="Reach out for collaboration, research, or engineering roles. The form below is a demo — feel free to use the mailto link if you prefer."
+        description="Get in touch about research collaboration, optical or radio systems work, or engineering roles."
         className="pb-16"
       >
         <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_0.9fr]">
@@ -82,9 +89,9 @@ const ContactPage = () => {
                 <Button label="Send message" icon={<Send size={16} />} type="submit" />
                 <a
                   className="text-sm font-semibold text-accent underline-offset-4 hover:underline"
-                  href="mailto:matthew@example.com"
+                  href={`mailto:${profile.email}`}
                 >
-                  Prefer email? Use mailto
+                  Or email {profile.email}
                 </a>
               </div>
             </form>
@@ -94,14 +101,14 @@ const ContactPage = () => {
           <div className="space-y-4 rounded-2xl border border-border/70 bg-gradient-to-br from-white/5 to-transparent p-6 shadow-card backdrop-blur">
             <h3 className="text-xl font-semibold text-white">Stay connected</h3>
             <p className="text-muted">
-              I reply quickly to concise, clear requests. Include context and timelines where possible — it helps me
-              share the most relevant work samples.
+              The form opens your email app with the message ready to send. Please include context and timelines
+              so I can reply with the most relevant work.
             </p>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {[
-                { label: 'GitHub', href: 'https://github.com', icon: Github },
-                { label: 'LinkedIn', href: 'https://www.linkedin.com', icon: Linkedin },
-                { label: 'Email', href: 'mailto:matthew@example.com', icon: Mail },
+                { label: 'GitHub', href: profile.links.github, icon: Github },
+                { label: 'LinkedIn', href: profile.links.linkedin, icon: Linkedin },
+                { label: 'Email', href: `mailto:${profile.email}`, icon: Mail },
               ].map((item) => (
                 <a
                   key={item.label}
@@ -116,7 +123,7 @@ const ContactPage = () => {
               ))}
             </div>
             <div className="rounded-xl border border-accent/40 bg-accent-soft px-4 py-3 text-sm text-white">
-              Open to internships, research collaborations, and part-time engineering roles focused on secure systems.
+              Open to research collaborations in free-space optics, channel modelling and applied ML, and to conversations about future engineering roles.
             </div>
           </div>
         </div>
@@ -136,7 +143,7 @@ const AnimateToast = ({ visible }: { visible: boolean }) => (
         className="mt-3 inline-flex items-center gap-2 rounded-full border border-accent/60 bg-accent-soft px-4 py-2 text-sm font-semibold text-white"
       >
         <Send size={16} />
-        Message sent (demo)
+        Opening your email app…
       </motion.div>
     )}
   </AnimatePresence>

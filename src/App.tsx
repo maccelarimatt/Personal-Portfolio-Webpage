@@ -1,5 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { AccentProvider } from './context/AccentContext';
 import MainLayout from './layouts/MainLayout';
 import AboutPage from './pages/About';
@@ -20,8 +20,10 @@ const AppRoutes = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/papers" element={<PapersPage />} />
-          <Route path="/competitions" element={<CompetitionsPage />} />
+          <Route path="/achievements" element={<CompetitionsPage />} />
+          <Route path="/competitions" element={<Navigate to="/achievements" replace />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </AnimatePresence>

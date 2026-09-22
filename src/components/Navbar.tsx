@@ -1,27 +1,22 @@
 import classNames from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Palette, Sparkles, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { useAccent } from '../context/AccentContext';
 
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/projects', label: 'Projects' },
-  { to: '/papers', label: 'Papers' },
-  { to: '/competitions', label: 'Competitions' },
+  { to: '/papers', label: 'Research' },
+  { to: '/achievements', label: 'Achievements' },
   { to: '/contact', label: 'Contact' },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { accent, toggleAccent } = useAccent();
-  const location = useLocation();
-
-  useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border/70 bg-surface/70 backdrop-blur-xl">
@@ -78,6 +73,8 @@ const Navbar = () => {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
           className="flex items-center gap-2 rounded-lg border border-border/80 bg-surface/80 p-2 text-white md:hidden"
         >
           {open ? <X size={18} /> : <Menu size={18} />}
@@ -98,6 +95,7 @@ const Navbar = () => {
                 <NavLink
                   key={link.to}
                   to={link.to}
+                  onClick={() => setOpen(false)}
                   className={({ isActive }) =>
                     classNames(
                       'flex items-center gap-2 rounded-xl px-3 py-3 text-sm font-medium no-underline',

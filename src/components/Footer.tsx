@@ -1,9 +1,10 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { profile } from '../data/profile';
 
 const socials = [
-  { href: 'https://github.com', label: 'GitHub', icon: Github },
-  { href: 'https://www.linkedin.com', label: 'LinkedIn', icon: Linkedin },
-  { href: 'mailto:matthew@example.com', label: 'Email', icon: Mail },
+  { href: profile.links.github, label: 'GitHub', icon: Github },
+  { href: profile.links.linkedin, label: 'LinkedIn', icon: Linkedin },
+  { href: `mailto:${profile.email}`, label: 'Email', icon: Mail },
 ];
 
 const Footer = () => (
@@ -11,7 +12,7 @@ const Footer = () => (
     <div className="container flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between">
       <div>
         <p className="text-lg font-semibold text-white">Matthew Maccelari</p>
-        <p className="text-sm text-muted">Engineering student building secure, resilient systems.</p>
+        <p className="text-sm text-muted">Optical communications, applied ML & radio systems · Johannesburg</p>
         <p className="mt-2 text-xs text-muted">© {new Date().getFullYear()} Matthew Maccelari. All rights reserved.</p>
       </div>
       <div className="flex items-center gap-3">

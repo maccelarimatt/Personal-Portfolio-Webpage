@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Github, Link as LinkIcon } from 'lucide-react';
+import { Award, Github, Link as LinkIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import Card from '../components/Card';
 import PageTransition from '../components/PageTransition';
@@ -25,7 +24,7 @@ const ProjectsPage = () => {
       <Section
         title="Projects"
         eyebrow="Selected work"
-        description="A snapshot of the systems, tools, and interfaces I have delivered — from embedded security to research-grade dashboards."
+        description="Research systems, production software and hardware builds, from turbulence simulation to a live e-commerce platform."
       >
         <div className="mb-6 flex flex-wrap gap-2">
           {filterOptions.map((option) => (
@@ -56,6 +55,7 @@ const ProjectsPage = () => {
                       href={project.links.github}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`${project.title} source code`}
                       className="flex h-9 w-9 items-center justify-center rounded-full border border-border/70 text-white hover:border-accent/60 hover:text-accent"
                     >
                       <Github size={16} />
@@ -66,6 +66,7 @@ const ProjectsPage = () => {
                       href={project.links.demo}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`${project.title} live site`}
                       className="flex h-9 w-9 items-center justify-center rounded-full border border-border/70 text-white hover:border-accent/60 hover:text-accent"
                     >
                       <LinkIcon size={16} />
@@ -83,13 +84,12 @@ const ProjectsPage = () => {
                   <Tag key={tech}>{tech}</Tag>
                 ))}
               </div>
-              <motion.div
-                whileHover={{ x: 4 }}
-                className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent"
-              >
-                Explore
-                <ArrowUpRight size={14} />
-              </motion.div>
+              {project.highlight && (
+                <div className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                  <Award size={14} />
+                  {project.highlight}
+                </div>
+              )}
             </Card>
           ))}
         </div>

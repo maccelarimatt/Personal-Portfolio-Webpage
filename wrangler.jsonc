@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "matthew-maccelari-portfolio",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dist",
+    // Serve index.html for unknown paths so client-side routes (/about, /projects, ...) work on refresh.
+    "not_found_handling": "single-page-application"
+  }
+}

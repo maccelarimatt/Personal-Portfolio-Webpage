@@ -4,39 +4,47 @@ export interface Competition {
   year: number;
   placement: string;
   description: string;
+  link?: string;
 }
 
 export const competitions: Competition[] = [
   {
+    id: 'ieee-cs-gsc-2026',
+    name: 'IEEE Computer Society Global Student Challenge',
+    year: 2026,
+    placement: 'Global finalist',
+    description:
+      'Selected among the top five teams internationally from Phase I and invited to present in person to the judging panel at the IEEE Annual Computer Security Applications Conference (ACSAC) in Los Angeles, December 2026, with travel support from the IEEE Computer Society.',
+  },
+  {
+    id: 'postgrad-merit',
+    name: 'Postgraduate Merit Award, University of the Witwatersrand',
+    year: 2026,
+    placement: 'Award',
+    description: 'Awarded on the strength of my undergraduate final-year average (2025).',
+  },
+  {
     id: 'nicis-2024',
-    name: 'NICIS Cybersecurity Challenge – MATLAB Challenge Winners',
+    name: 'CHPC NICIS National Cyber Security Challenge',
     year: 2024,
-    placement: 'Winners',
+    placement: '3rd place',
     description:
-      'Built resilient MATLAB exploit mitigations and signal-analysis tooling for the NICIS capture-the-flag challenge, leading the team to first place.',
+      'Invited to Gqeberha to compete against the top teams in Southern Africa, finishing third overall. Also placed 1st in the MATLAB Security Classification Challenge.',
+    link: 'https://www.csc.ac.za',
   },
   {
-    id: 'hacktheburgh',
-    name: 'HackTheBugh Embedded Security Sprint',
-    year: 2024,
-    placement: 'Finalist',
+    id: 'protea-colours',
+    name: 'Protea Colours: Kayak Sprint',
+    year: 2021,
+    placement: 'National colours',
     description:
-      'Delivered a secure boot + attestation demo on STM32 with attack simulations and defense playbooks for judges.',
+      'Represented South Africa at the 2021 Junior and Under-23 Kayak Sprint World Championships in Montemor-o-Velho, Portugal.',
   },
   {
-    id: 'quantum-build',
-    name: 'Quantum Buildathon',
-    year: 2023,
-    placement: 'Top 5',
-    description:
-      'Prototyped a PQC key exchange visualizer to help students understand Kyber and Dilithium trade-offs.',
-  },
-  {
-    id: 'signal-hack',
-    name: 'Signal Processing Datathon',
-    year: 2022,
-    placement: 'Honourable Mention',
-    description:
-      'Developed a lightweight DSP pipeline for noisy biomedical signals with a clear explanatory report.',
+    id: 'entrance-scholarship',
+    name: 'University Entrance Scholarship, University of the Witwatersrand',
+    year: 2021,
+    placement: 'Scholarship',
+    description: 'Earned from National Senior Certificate (IEB) results.',
   },
 ];
