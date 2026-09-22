@@ -25,7 +25,7 @@ const highlightItems = [
   {
     title: 'Achievements',
     description:
-      'IEEE Computer Society global finalist, national cyber security podium, and Protea colours in kayak sprint.',
+      'IEEE Computer Society global finalist, Investec Tech Explore winner, national cyber security podium, and Protea colours in kayak sprint.',
     link: '/achievements',
   },
 ];
@@ -56,6 +56,7 @@ const bannerRows = [
     'Quantum Machine Learning',
     'Cybersecurity',
     'IEEE Global Finalist',
+    'Investec Tech Explore Winner',
     '2nd of 112',
     'Science Outreach',
     'Protea Colours',

@@ -84,6 +84,7 @@ export interface ExperienceItem {
   location: string;
   points: string[];
   badge?: string;
+  image?: Photo;
 }
 
 export const experience: ExperienceItem[] = [
@@ -93,6 +94,10 @@ export const experience: ExperienceItem[] = [
     period: 'Jan 2026 — Present',
     location: 'Johannesburg',
     badge: 'Research',
+    image: {
+      src: '/images/oclab-group.webp',
+      alt: 'Members of the Wits Optical Communication Laboratory in a group photo outside the Joburg Theatre',
+    },
     points: [
       'Built a split-step wave-optics propagation model using von Kármán phase screens with frozen-flow statistics, validated against gamma-gamma turbulence theory to within ~2% on both the phase structure function and the Rytov scintillation prediction.',
       'Constructed a leakage-controlled dataset of ~33 000 windows and trained a compact recurrent network in PyTorch, currently reducing prediction error by ~16% against a tuned persistence baseline.',
@@ -147,6 +152,10 @@ export const outreach: OutreachItem[] = [
     title: 'Optica / SPIE Wits Student Chapter',
     description:
       "Helped organise public events and quizzes, and exhibited structured light and optical communication systems to schoolchildren at Wits' Yebo Gogga and the Johannesburg City Parks and Zoo National Science Month celebration in Soweto.",
+    image: {
+      src: '/images/optica-outreach.webp',
+      alt: 'Matthew demonstrating optics to schoolchildren at the Optica Wits Student Chapter stand',
+    },
   },
   {
     title: 'Optical Communication Laboratory',

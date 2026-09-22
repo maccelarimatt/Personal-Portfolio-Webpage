@@ -91,6 +91,7 @@ const AboutPage = () => (
           period: item.period,
           description: item.points[0],
           badge: item.badge,
+          image: item.image,
           extra:
             item.points.length > 1 ? (
               <ul className="list-disc space-y-2 pl-5 text-white/80">

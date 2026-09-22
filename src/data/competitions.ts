@@ -21,6 +21,29 @@ export const competitions: Competition[] = [
       'Selected among the top five teams internationally from Phase I and invited to present in person to the judging panel at the IEEE Annual Computer Security Applications Conference (ACSAC) in Los Angeles, December 2026, with travel support from the IEEE Computer Society.',
   },
   {
+    id: 'investec-tech-explore-2026',
+    name: 'Investec Tech Explore Challenge',
+    year: 2026,
+    placement: '1st place',
+    description: 'Placed first overall in the Investec Tech Explore Challenge.',
+    image: {
+      src: '/images/investec-tech-explore.webp',
+      alt: 'Matthew in a suit standing beside a zebra sculpture at the Investec Tech Explore Challenge',
+    },
+  },
+  {
+    id: 'eie-second-place-prize',
+    name: 'Second Place Prize, School of Electrical and Information Engineering',
+    year: 2026,
+    placement: '2nd in class',
+    description:
+      'Awarded the prize for placing second in the final-year Electrical and Information Engineering class of 112 students, presented at the Wits academic awards ceremony.',
+    image: {
+      src: '/images/eie-awards.webp',
+      alt: 'Matthew receiving his certificate on stage at the Wits academic awards ceremony',
+    },
+  },
+  {
     id: 'postgrad-merit',
     name: 'Postgraduate Merit Award, University of the Witwatersrand',
     year: 2026,
