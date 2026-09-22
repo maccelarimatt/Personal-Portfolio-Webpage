@@ -48,6 +48,7 @@ const ProjectsPage = () => {
               key={project.id}
               title={project.title}
               subtitle={project.category}
+              image={project.image}
               actions={
                 <div className="flex items-center gap-2">
                   {project.links?.github && (

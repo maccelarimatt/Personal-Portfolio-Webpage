@@ -5,6 +5,10 @@ export interface Competition {
   placement: string;
   description: string;
   link?: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
 }
 
 export const competitions: Competition[] = [
@@ -31,6 +35,10 @@ export const competitions: Competition[] = [
     description:
       'Invited to Gqeberha to compete against the top teams in Southern Africa, finishing third overall. Also placed 1st in the MATLAB Security Classification Challenge.',
     link: 'https://www.csc.ac.za',
+    image: {
+      src: '/images/nicis-2024.webp',
+      alt: 'The Wits team on stage receiving the third-place cheque at the CHPC NICIS National Cyber Security Challenge 2024',
+    },
   },
   {
     id: 'protea-colours',
@@ -39,6 +47,10 @@ export const competitions: Competition[] = [
     placement: 'National colours',
     description:
       'Represented South Africa at the 2021 Junior and Under-23 Kayak Sprint World Championships in Montemor-o-Velho, Portugal.',
+    image: {
+      src: '/images/kayak-protea.webp',
+      alt: 'Matthew racing a K2 sprint kayak in South African colours at the 2021 World Championships',
+    },
   },
   {
     id: 'entrance-scholarship',

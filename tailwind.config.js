@@ -27,6 +27,15 @@ export default {
         'glass-gradient':
           'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%)',
       },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 45s linear infinite',
+      },
       borderRadius: {
         glass: '18px',
       },

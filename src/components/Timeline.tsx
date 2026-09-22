@@ -7,6 +7,10 @@ export interface TimelineEntry {
   period: string;
   description: string;
   badge?: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
   extra?: ReactNode;
 }
 
@@ -32,7 +36,15 @@ const Timeline = ({ items }: TimelineProps) => (
             <p className="text-lg font-semibold text-white">{item.title}</p>
             {item.subtitle && <p className="text-sm text-muted">{item.subtitle}</p>}
           </div>
-          <div className="mt-3 rounded-xl border border-border/60 bg-surface/70 p-4 text-sm text-muted shadow-card backdrop-blur md:mt-0 md:w-1/2">
+          <div className="mt-3 overflow-hidden rounded-xl border border-border/60 bg-surface/70 p-4 text-sm text-muted shadow-card backdrop-blur md:mt-0 md:w-1/2">
+            {item.image && (
+              <img
+                src={item.image.src}
+                alt={item.image.alt}
+                loading="lazy"
+                className="-mx-4 -mt-4 mb-4 aspect-[16/9] w-[calc(100%+2rem)] max-w-none object-cover object-top"
+              />
+            )}
             <p className="leading-relaxed text-white/90">{item.description}</p>
             {item.badge && (
               <span className="mt-3 inline-flex rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white">

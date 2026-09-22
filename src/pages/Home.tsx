@@ -6,6 +6,7 @@ import Card from '../components/Card';
 import PageTransition from '../components/PageTransition';
 import Section from '../components/Section';
 import Tag from '../components/Tag';
+import WordBanner, { RotatingWords } from '../components/WordBanner';
 import { profile, stats } from '../data/profile';
 
 const highlightItems = [
@@ -29,7 +30,37 @@ const highlightItems = [
   },
 ];
 
-const focusAreas = ['Free-Space Optics', 'Channel Prediction', 'Software-Defined Radio', 'Applied ML'];
+const roles = [
+  'Photonics Researcher',
+  'ML Engineer',
+  'Radio Systems Builder',
+  'Software Engineer',
+  'Science Communicator',
+  'Protea Athlete',
+];
+
+const bannerRows = [
+  [
+    'Free-Space Optics',
+    'Atmospheric Turbulence',
+    'Channel Prediction',
+    'Digital Twins',
+    'Software-Defined Radio',
+    'TV White Space',
+    'Rural Connectivity',
+    'GNU Radio',
+  ],
+  [
+    'PyTorch',
+    'Wave-Optics Simulation',
+    'Quantum Machine Learning',
+    'Cybersecurity',
+    'IEEE Global Finalist',
+    '2nd of 112',
+    'Science Outreach',
+    'Protea Colours',
+  ],
+];
 
 const HomePage = () => (
   <PageTransition>
@@ -47,7 +78,12 @@ const HomePage = () => (
             MSc (Eng) Candidate · Wits Optical Communication Lab
           </div>
           <div className="space-y-4">
-            <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">{profile.name}</h1>
+            <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+              {profile.name}
+              <span className="mt-2 block text-2xl font-semibold md:text-3xl">
+                <RotatingWords words={roles} />
+              </span>
+            </h1>
             <p className="text-lg text-muted md:text-xl">
               I build machine learning that anticipates turbulence-induced fades on free-space optical links,
               so radio systems can adapt <span className="text-white">before</span> the channel degrades,
@@ -98,36 +134,36 @@ const HomePage = () => (
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="relative flex items-center justify-center"
         >
-          <div className="relative w-full max-w-md rounded-2xl border border-border/60 bg-surface/80 p-6 shadow-card backdrop-blur">
-            <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-accent/20 via-transparent to-accent-strong/20 blur-3xl" />
-            <div className="flex items-center justify-between">
-              <p className="text-sm uppercase tracking-[0.2em] text-accent">Focus Areas</p>
-              <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-white">
-                2026 — 2027
-              </span>
+          <div className="relative w-full max-w-sm">
+            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-accent/30 via-transparent to-accent-strong/30 blur-3xl" />
+            <div className="rounded-[1.75rem] bg-gradient-to-br from-accent/60 via-white/10 to-accent-strong/60 p-[2px] shadow-glow">
+              <img
+                src={profile.photos.portrait}
+                alt="Portrait of Matthew Maccelari"
+                width={720}
+                height={961}
+                className="aspect-[3/4] w-full rounded-[calc(1.75rem-2px)] bg-white object-cover object-top"
+              />
             </div>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              {focusAreas.map((item) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ y: -4 }}
-                  className="rounded-xl border border-border/70 bg-white/5 p-4 text-sm font-semibold text-white/90 shadow-card"
-                >
-                  {item}
-                </motion.div>
-              ))}
-            </div>
-            <div className="mt-6 rounded-xl border border-border/60 bg-gradient-to-r from-accent/10 via-transparent to-accent-strong/10 p-4 text-sm text-muted">
-              <p className="text-white">
-                Now: turning a physics-validated FSO digital twin into a real-time channel emulator feeding a GNU
-                Radio flowgraph on the lab's 800 m outdoor link.
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="absolute -bottom-6 left-4 right-4 rounded-xl border border-border/60 bg-surface p-4 text-sm shadow-card md:-left-10 md:right-auto md:w-[85%]"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-accent">Now</p>
+              <p className="mt-1 text-white">
+                Turning a physics-validated FSO digital twin into a real-time channel emulator on the lab's 800 m
+                outdoor link.
               </p>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </section>
 
-      <section className="container mx-auto">
+      <WordBanner rows={bannerRows} />
+
+      <section className="container mx-auto pt-12">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {stats.map((stat, idx) => (
             <motion.div

@@ -18,6 +18,7 @@ const CompetitionsPage = () => (
           period: item.year.toString(),
           description: item.description,
           badge: item.placement,
+          image: item.image,
           extra: item.link ? (
             <a
               href={item.link}

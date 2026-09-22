@@ -8,6 +8,10 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/matthew-maccelari-66ab28264/',
     cv: '/cv.pdf',
   },
+  photos: {
+    portrait: '/images/portrait.webp',
+    headshot: '/images/headshot.webp',
+  },
   summary:
     'I am an MSc (Eng) by dissertation candidate at the University of the Witwatersrand, working at the intersection of atmospheric optics, applied machine learning and real-time radio systems engineering. My research develops a neural network channel predictor that anticipates turbulence-induced fades on a free-space optical link, enabling pre-emptive link adaptation in support of affordable rural connectivity in South Africa.',
   summaryExtra:
@@ -26,6 +30,11 @@ export const stats: Stat[] = [
   { value: '3rd', label: 'CHPC NICIS National Cyber Security Challenge' },
 ];
 
+export interface Photo {
+  src: string;
+  alt: string;
+}
+
 export interface EducationItem {
   institution: string;
   program: string;
@@ -33,6 +42,7 @@ export interface EducationItem {
   location: string;
   details: string;
   badge?: string;
+  image?: Photo;
 }
 
 export const education: EducationItem[] = [
@@ -53,6 +63,10 @@ export const education: EducationItem[] = [
     details:
       'Placed 2nd in the final-year class by average mark out of 112 students, with a final-year average of 82% and fifteen A symbols across the degree (highest: 94% for Software Development). Coursework included Machine Learning, Digital Signal Processing, Data Science, Statistics, Control Systems, Quantum Computing and Engineering Ethics. Elected final-year class representative on the School of Electrical and Information Engineering student council.',
     badge: '2nd of 112',
+    image: {
+      src: '/images/graduation.webp',
+      alt: 'Matthew being hooded on stage at his Wits BSc (Eng) graduation ceremony',
+    },
   },
   {
     institution: "St David's Marist Inanda",
@@ -125,6 +139,7 @@ export const experience: ExperienceItem[] = [
 export interface OutreachItem {
   title: string;
   description: string;
+  image?: Photo;
 }
 
 export const outreach: OutreachItem[] = [
@@ -137,6 +152,10 @@ export const outreach: OutreachItem[] = [
     title: 'Optical Communication Laboratory',
     description:
       'Represented the lab at the National Science Month launch day at Vaal University of Technology, and gave lab tours to industry members and school groups.',
+    image: {
+      src: '/images/science-month-booth.webp',
+      alt: 'The Wits Optical Communication stand at National Science Month, with free-space optical terminals on display',
+    },
   },
 ];
 

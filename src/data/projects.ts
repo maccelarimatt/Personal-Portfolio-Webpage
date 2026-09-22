@@ -8,6 +8,10 @@ export interface Project {
   tech: string[];
   role: string;
   highlight?: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
   links?: {
     github?: string;
     demo?: string;
@@ -43,6 +47,10 @@ export const projects: Project[] = [
     tech: ['React', 'Node.js', 'PostgreSQL'],
     role: 'Full-Stack Developer',
     highlight: 'Live in production',
+    image: {
+      src: '/images/pureherb.webp',
+      alt: 'PureHerb home page showing the Paarl Apothecary hero section and product ranges',
+    },
     links: {
       demo: 'https://www.pureherb.co.za',
     },

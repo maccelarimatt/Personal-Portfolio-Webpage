@@ -7,10 +7,14 @@ interface CardProps {
   subtitle?: string;
   className?: string;
   actions?: ReactNode;
+  image?: {
+    src: string;
+    alt: string;
+  };
   children: ReactNode;
 }
 
-const Card = ({ title, subtitle, actions, children, className }: CardProps) => (
+const Card = ({ title, subtitle, actions, image, children, className }: CardProps) => (
   <motion.div
     initial={{ opacity: 0, y: 16 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -23,6 +27,14 @@ const Card = ({ title, subtitle, actions, children, className }: CardProps) => (
       className,
     )}
   >
+    {image && (
+      <img
+        src={image.src}
+        alt={image.alt}
+        loading="lazy"
+        className="relative -mx-5 -mt-5 mb-5 aspect-[16/9] w-[calc(100%+2.5rem)] max-w-none object-cover object-top"
+      />
+    )}
     <div className="relative flex items-start justify-between gap-2">
       <div>
         {subtitle && <p className="text-xs uppercase tracking-[0.2em] text-accent">{subtitle}</p>}

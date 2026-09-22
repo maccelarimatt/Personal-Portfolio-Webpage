@@ -25,6 +25,19 @@ const AboutPage = () => (
           transition={{ duration: 0.4 }}
           className="rounded-2xl border border-border/70 bg-surface/70 p-6 shadow-card backdrop-blur"
         >
+          <div className="mb-5 flex items-center gap-4">
+            <img
+              src={profile.photos.headshot}
+              alt="Matthew Maccelari"
+              width={80}
+              height={80}
+              className="h-20 w-20 rounded-full border-2 border-accent/60 object-cover shadow-glow"
+            />
+            <div>
+              <p className="text-xl font-semibold text-white">{profile.name}</p>
+              <p className="text-sm text-muted">{profile.location}</p>
+            </div>
+          </div>
           <p className="text-lg text-white">{profile.summary}</p>
           <p className="mt-3 text-muted">{profile.summaryExtra}</p>
           <p className="mt-3 text-muted">
@@ -98,6 +111,7 @@ const AboutPage = () => (
           period: item.period,
           description: item.details,
           badge: item.badge,
+          image: item.image,
         }))}
       />
     </Section>
@@ -110,7 +124,7 @@ const AboutPage = () => (
     >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {outreach.map((item) => (
-          <Card key={item.title} title={item.title} subtitle="Outreach">
+          <Card key={item.title} title={item.title} subtitle="Outreach" image={item.image}>
             {item.description}
           </Card>
         ))}
