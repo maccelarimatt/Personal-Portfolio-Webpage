@@ -1,37 +1,39 @@
 import { ExternalLink } from 'lucide-react';
+import EntryList from '../components/EntryList';
 import PageTransition from '../components/PageTransition';
-import Section from '../components/Section';
-import Timeline from '../components/Timeline';
+import { PageHeader } from '../components/Section';
 import { competitions } from '../data/competitions';
 
 const CompetitionsPage = () => (
   <PageTransition>
-    <Section
-      title="Achievements"
-      eyebrow="On the record"
-      description="Competitions, awards and representative honours, from international security challenges to national sporting colours."
-      className="pb-20"
-    >
-      <Timeline
-        items={competitions.map((item) => ({
-          title: item.name,
-          period: item.year.toString(),
-          description: item.description,
-          badge: item.placement,
-          image: item.image,
-          extra: item.link ? (
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:text-white"
-            >
-              Learn more <ExternalLink size={12} />
-            </a>
-          ) : undefined,
-        }))}
-      />
-    </Section>
+    <PageHeader
+      floor="4F"
+      title="Record"
+      intro="Competitions, awards and representative honours, from international security challenges to national sporting colours."
+    />
+    <section className="container pb-20">
+      <div className="border-t-2 border-panel pt-10">
+        <EntryList
+          items={competitions.map((item) => ({
+            id: item.id,
+            period: item.year.toString(),
+            title: item.name,
+            badge: item.placement,
+            image: item.image,
+            body: (
+              <>
+                <p className="m-0">{item.description}</p>
+                {item.link && (
+                  <a href={item.link} target="_blank" rel="noreferrer" className="text-link mt-4">
+                    Event site <ExternalLink size={15} strokeWidth={2.5} aria-hidden="true" />
+                  </a>
+                )}
+              </>
+            ),
+          }))}
+        />
+      </div>
+    </section>
   </PageTransition>
 );
 

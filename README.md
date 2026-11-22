@@ -50,9 +50,12 @@ All content is data-driven:
 - `src/components` – Reusable UI (navbar, cards, buttons, timeline, etc.)
 - `src/layouts` – Shared layout shell with header/footer
 - `src/pages` – Route pages (Home, About, Projects, Research, Achievements, Contact)
-- `src/data` – Content sources
-- `src/context` – Accent palette toggle context
+- `src/data` – Content sources (`floors.ts` holds the floor directory used for navigation)
 
-## Contact Form
+## Contact
 
-The site is static, so the contact form opens the visitor's email client with a pre-filled message addressed to the email in `src/data/profile.ts`.
+The site is static. The Contact page links straight to the email address in `src/data/profile.ts` (with a copy-to-clipboard button), plus LinkedIn, GitHub and the CV.
+
+## Design
+
+The visual system ("Signboard Canyon": every page is a lit floor sign) is recorded in `PRODUCT.md`, `DESIGN.md` and `.impeccable/`. Fonts (League Gothic, Sofia Sans, Sofia Sans Condensed) are self-hosted from `public/fonts`.

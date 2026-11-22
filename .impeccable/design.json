@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-22T18:27:39.390Z",
+  "title": "Design System: Matthew Maccelari",
+  "extensions": {
+    "colorMeta": {
+      "asphalt": {
+        "role": "neutral",
+        "displayName": "Wet Asphalt",
+        "canonical": "#0d0e10",
+        "oklch": "oklch(16.4% 0.005 264.4)",
+        "tonalRamp": [
+          "oklch(15% 0.002 264)",
+          "oklch(26% 0.003 264)",
+          "oklch(38% 0.003 264)",
+          "oklch(49% 0.004 264)",
+          "oklch(61% 0.004 264)",
+          "oklch(72% 0.003 264)",
+          "oklch(84% 0.003 264)",
+          "oklch(95% 0.002 264)"
+        ]
+      },
+      "street": {
+        "role": "neutral",
+        "displayName": "Night Street",
+        "canonical": "#16171a",
+        "oklch": "oklch(20.5% 0.006 271.1)",
+        "tonalRamp": [
+          "oklch(15% 0.002 271)",
+          "oklch(26% 0.003 271)",
+          "oklch(38% 0.005 271)",
+          "oklch(49% 0.006 271)",
+          "oklch(61% 0.006 271)",
+          "oklch(72% 0.005 271)",
+          "oklch(84% 0.003 271)",
+          "oklch(95% 0.002 271)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Gutter Rule",
+        "canonical": "#2a2c30",
+        "oklch": "oklch(29.3% 0.008 264.4)",
+        "tonalRamp": [
+          "oklch(15% 0.003 264)",
+          "oklch(26% 0.004 264)",
+          "oklch(38% 0.006 264)",
+          "oklch(49% 0.007 264)",
+          "oklch(61% 0.007 264)",
+          "oklch(72% 0.006 264)",
+          "oklch(84% 0.004 264)",
+          "oklch(95% 0.003 264)"
+        ]
+      },
+      "steel": {
+        "role": "neutral",
+        "displayName": "Signframe Steel",
+        "canonical": "#4a4e54",
+        "oklch": "oklch(42.2% 0.011 258.4)",
+        "tonalRamp": [
+          "oklch(15% 0.004 258)",
+          "oklch(26% 0.006 258)",
+          "oklch(38% 0.008 258)",
+          "oklch(49% 0.010 258)",
+          "oklch(61% 0.010 258)",
+          "oklch(72% 0.008 258)",
+          "oklch(84% 0.006 258)",
+          "oklch(95% 0.004 258)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Acrylic Off-White",
+        "canonical": "#f4f1ea",
+        "oklch": "oklch(95.9% 0.010 87.5)",
+        "tonalRamp": [
+          "oklch(15% 0.004 87)",
+          "oklch(26% 0.005 87)",
+          "oklch(38% 0.007 87)",
+          "oklch(49% 0.009 87)",
+          "oklch(61% 0.009 87)",
+          "oklch(72% 0.007 87)",
+          "oklch(84% 0.005 87)",
+          "oklch(95% 0.004 87)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Sign Ink",
+        "canonical": "#111214",
+        "oklch": "oklch(18.2% 0.004 264.5)",
+        "tonalRamp": [
+          "oklch(15% 0.002 264)",
+          "oklch(26% 0.002 264)",
+          "oklch(38% 0.003 264)",
+          "oklch(49% 0.004 264)",
+          "oklch(61% 0.004 264)",
+          "oklch(72% 0.003 264)",
+          "oklch(84% 0.002 264)",
+          "oklch(95% 0.002 264)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Worn Ink",
+        "canonical": "#4f4b45",
+        "oklch": "oklch(41.5% 0.011 78.2)",
+        "tonalRamp": [
+          "oklch(15% 0.004 78)",
+          "oklch(26% 0.006 78)",
+          "oklch(38% 0.008 78)",
+          "oklch(49% 0.010 78)",
+          "oklch(61% 0.010 78)",
+          "oklch(72% 0.008 78)",
+          "oklch(84% 0.006 78)",
+          "oklch(95% 0.004 78)"
+        ]
+      },
+      "ash": {
+        "role": "neutral",
+        "displayName": "Street Ash",
+        "canonical": "#a8a49c",
+        "oklch": "oklch(72.0% 0.012 84.6)",
+        "tonalRamp": [
+          "oklch(15% 0.005 85)",
+          "oklch(26% 0.007 85)",
+          "oklch(38% 0.009 85)",
+          "oklch(49% 0.011 85)",
+          "oklch(61% 0.011 85)",
+          "oklch(72% 0.009 85)",
+          "oklch(84% 0.007 85)",
+          "oklch(95% 0.005 85)"
+        ]
+      },
+      "neon": {
+        "role": "primary",
+        "displayName": "Sign Neon Red",
+        "canonical": "#c8241a",
+        "oklch": "oklch(53.8% 0.200 29.2)",
+        "tonalRamp": [
+          "oklch(15% 0.076 29)",
+          "oklch(26% 0.111 29)",
+          "oklch(38% 0.147 29)",
+          "oklch(49% 0.182 29)",
+          "oklch(61% 0.182 29)",
+          "oklch(72% 0.147 29)",
+          "oklch(84% 0.111 29)",
+          "oklch(95% 0.076 29)"
+        ]
+      },
+      "lantern": {
+        "role": "secondary",
+        "displayName": "Lantern Vermilion",
+        "canonical": "#ff6b35",
+        "oklch": "oklch(70.5% 0.193 39.2)",
+        "tonalRamp": [
+          "oklch(15% 0.074 39)",
+          "oklch(26% 0.108 39)",
+          "oklch(38% 0.142 39)",
+          "oklch(49% 0.176 39)",
+          "oklch(61% 0.176 39)",
+          "oklch(72% 0.142 39)",
+          "oklch(84% 0.108 39)",
+          "oklch(95% 0.074 39)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Heading signs, ground sign name, highlight figures and the Contact email; League Gothic caps."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "In-floor section titles on a 2px off-white rule."
+      },
+      "sign": {
+        "displayName": "Sign",
+        "purpose": "Label inside the standard floor-sign module."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Entry, paper and project titles in Sofia Sans bold."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "Summary paragraphs opening a floor, 68ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, 68ch, tabular numerals."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Metadata, periods, specs, plates and captions in condensed tracked caps."
+      },
+      "label-action": {
+        "displayName": "Label Action",
+        "purpose": "Buttons, nav items and footer links."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "state-switch",
+        "value": "75ms, Tailwind default easing, on background-color and color",
+        "purpose": "Every lit/unlit and hover inversion."
+      },
+      {
+        "name": "power-on",
+        "value": "900ms linear; opacity 0.18 (0-38%), 0.85 (42%), 0.3 (48%), 1 (58-100%); 140ms delay per floor, ground sign first",
+        "purpose": "One-time fluorescent power-on of the Home signs. Disabled under prefers-reduced-motion."
+      },
+      {
+        "name": "page-cut",
+        "value": "160ms linear opacity fade (Framer Motion, MotionConfig reducedMotion=\"user\")",
+        "purpose": "Page change between floors."
+      },
+      {
+        "name": "reflection",
+        "value": "scaleY(-1), opacity 0.22, SVG feGaussianBlur stdDeviation \"1.5 7\" + feTurbulence baseFrequency \"0.002 0.08\" + feDisplacementMap scale 28, mask linear-gradient(to bottom, #000 0%, transparent 90%)",
+        "purpose": "Decorative, inert wet-street reflection under the Home spine; the only gradient in the system. Mirrors the hover state."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "container-max",
+        "value": "1280px"
+      }
+    ],
+    "focus": {
+      "value": "outline: 2px solid #ff6b35; outline-offset: 3px",
+      "purpose": "Global keyboard focus ring."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action per cluster: a solid neon plate that inverts to off-white on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Email Matthew <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg></a>",
+      "css": ":host{--asphalt:#0d0e10;--street:#16171a;--rule:#2a2c30;--steel:#4a4e54;--panel:#f4f1ea;--ink:#111214;--ink-soft:#4f4b45;--ash:#a8a49c;--neon:#c8241a;--lantern:#ff6b35;}.ds-btn-primary{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px;font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-size:1rem;font-weight:700;letter-spacing:0.08em;text-decoration:none;border-radius:0;transition:background-color 75ms,color 75ms;cursor:pointer;background:var(--neon);color:var(--panel);border:0;}.ds-btn-primary:hover{background:var(--panel);color:var(--ink);}.ds-btn-primary:focus-visible{outline:2px solid var(--lantern);outline-offset:3px;}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined companion action (Download CV, Contact details); fills off-white on hover.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Download CV <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><polyline points=\"7 10 12 15 17 10\"/><line x1=\"12\" x2=\"12\" y1=\"15\" y2=\"3\"/></svg></a>",
+      "css": ":host{--asphalt:#0d0e10;--street:#16171a;--rule:#2a2c30;--steel:#4a4e54;--panel:#f4f1ea;--ink:#111214;--ink-soft:#4f4b45;--ash:#a8a49c;--neon:#c8241a;--lantern:#ff6b35;}.ds-btn-secondary{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px;font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-size:1rem;font-weight:700;letter-spacing:0.08em;text-decoration:none;border-radius:0;transition:background-color 75ms,color 75ms;cursor:pointer;background:transparent;color:var(--panel);border:2px solid var(--panel);}.ds-btn-secondary:hover{background:var(--panel);color:var(--ink);}.ds-btn-secondary:focus-visible{outline:2px solid var(--lantern);outline-offset:3px;}"
+    },
+    {
+      "name": "Floor Sign",
+      "kind": "custom",
+      "refersTo": "sign-module",
+      "description": "The repeating sign module: floor cell, backlit panel, spec cell. Lights neon red on hover or focus; the lit variant marks the open floor.",
+      "html": "<div class=\"ds-stack\"><a class=\"ds-sign ds-sign-lit\" href=\"#\"><span class=\"ds-sign-floor\">5F</span><span class=\"ds-sign-panel\"><span class=\"ds-sign-label\">Contact</span></span><span class=\"ds-sign-spec\">Email · CV · GitHub · LinkedIn</span></a><a class=\"ds-sign\" href=\"#\"><span class=\"ds-sign-floor\">2F</span><span class=\"ds-sign-panel\"><span class=\"ds-sign-label\">Projects</span></span><span class=\"ds-sign-spec\">6 builds · 1 live in production</span></a><a class=\"ds-sign\" href=\"#\"><span class=\"ds-sign-floor\">1F</span><span class=\"ds-sign-panel\"><span class=\"ds-sign-label\">Research</span></span><span class=\"ds-sign-spec\">FSO channel prediction · 2 papers</span></a></div>",
+      "css": ":host{--asphalt:#0d0e10;--street:#16171a;--rule:#2a2c30;--steel:#4a4e54;--panel:#f4f1ea;--ink:#111214;--ink-soft:#4f4b45;--ash:#a8a49c;--neon:#c8241a;--lantern:#ff6b35;}.ds-stack{display:flex;flex-direction:column;gap:6px;background:var(--asphalt);padding:16px;}.ds-sign{display:flex;height:64px;border:1px solid var(--steel);background:var(--street);text-decoration:none;}.ds-sign-floor{display:flex;align-items:center;justify-content:center;width:64px;flex-shrink:0;border-right:1px solid var(--steel);font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-weight:700;font-size:1.25rem;color:var(--lantern);font-variant-numeric:tabular-nums;}.ds-sign-panel{display:flex;flex:1;min-width:0;align-items:center;padding:0 16px;background:var(--panel);color:var(--ink);transition:background-color 75ms,color 75ms;}.ds-sign-label{font-family:'League Gothic','Arial Narrow',sans-serif;text-transform:uppercase;line-height:0.92;letter-spacing:0.01em;font-weight:400;font-size:2.5rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.ds-sign-spec{display:flex;align-items:center;width:15rem;flex-shrink:0;padding:0 16px;font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;line-height:1.25;color:var(--ash);}.ds-sign:hover .ds-sign-panel,.ds-sign:focus-visible .ds-sign-panel{background:var(--neon);color:var(--panel);}.ds-sign:focus-visible{outline:2px solid var(--lantern);outline-offset:2px;}.ds-sign-lit{background:var(--neon);border-color:var(--neon);}.ds-sign-lit .ds-sign-panel{background:var(--neon);color:var(--panel);}.ds-sign-lit .ds-sign-floor,.ds-sign-lit .ds-sign-spec{color:var(--panel);}"
+    },
+    {
+      "name": "Heading Sign",
+      "kind": "custom",
+      "refersTo": "sign-heading-lit",
+      "description": "The floor sign at heading size, lit, opening every page.",
+      "html": "<div class=\"ds-hsign\"><span class=\"ds-hsign-floor\">1F</span><span class=\"ds-hsign-panel\"><span class=\"ds-hsign-label\">Research</span></span></div>",
+      "css": ":host{--asphalt:#0d0e10;--street:#16171a;--rule:#2a2c30;--steel:#4a4e54;--panel:#f4f1ea;--ink:#111214;--ink-soft:#4f4b45;--ash:#a8a49c;--neon:#c8241a;--lantern:#ff6b35;}.ds-hsign{display:flex;min-height:112px;border:1px solid var(--neon);background:var(--neon);}.ds-hsign-floor{display:flex;align-items:center;justify-content:center;width:96px;flex-shrink:0;border-right:1px solid var(--steel);font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-weight:700;font-size:1.875rem;color:var(--panel);}.ds-hsign-panel{display:flex;flex:1;align-items:center;padding:12px 24px;background:var(--neon);color:var(--panel);}.ds-hsign-label{font-family:'League Gothic','Arial Narrow',sans-serif;text-transform:uppercase;line-height:0.92;letter-spacing:0.01em;font-weight:400;font-size:4.5rem;}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky top bar: name plate, floors ground-first with lantern numbers, current floor lit, outlined CV link.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-name\" href=\"#\">Matthew Maccelari</a><ul class=\"ds-nav-list\"><li><a class=\"ds-nav-link\" href=\"#\"><span class=\"ds-nav-num\">1F</span>Research</a></li><li><a class=\"ds-nav-link ds-nav-active\" href=\"#\"><span class=\"ds-nav-num\">2F</span>Projects</a></li><li><a class=\"ds-nav-link\" href=\"#\"><span class=\"ds-nav-num\">3F</span>About</a></li><li class=\"ds-nav-sep\"><a class=\"ds-nav-cv\" href=\"#\">CV (PDF)</a></li></ul></nav>",
+      "css": ":host{--asphalt:#0d0e10;--street:#16171a;--rule:#2a2c30;--steel:#4a4e54;--panel:#f4f1ea;--ink:#111214;--ink-soft:#4f4b45;--ash:#a8a49c;--neon:#c8241a;--lantern:#ff6b35;}.ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:56px;padding:0 20px;background:var(--asphalt);border-bottom:1px solid var(--steel);}.ds-nav-name{display:flex;align-items:center;height:36px;padding:0 12px;background:var(--panel);color:var(--ink);font-family:'League Gothic','Arial Narrow',sans-serif;text-transform:uppercase;line-height:0.92;letter-spacing:0.01em;font-weight:400;font-size:1.625rem;text-decoration:none;transition:background-color 75ms,color 75ms;}.ds-nav-name:hover{background:var(--neon);color:var(--panel);}.ds-nav-list{display:flex;align-items:stretch;gap:4px;margin:0;padding:0;list-style:none;}.ds-nav-link{display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-size:0.9375rem;font-weight:700;letter-spacing:0.08em;color:var(--panel);text-decoration:none;transition:background-color 75ms,color 75ms;}.ds-nav-num{color:var(--lantern);}.ds-nav-link:hover{background:var(--panel);color:var(--ink);}.ds-nav-active,.ds-nav-active:hover{background:var(--neon);color:var(--panel);}.ds-nav-active .ds-nav-num{color:var(--panel);}.ds-nav-sep{display:flex;align-items:center;margin-left:12px;padding-left:16px;border-left:1px solid var(--steel);}.ds-nav-cv{display:flex;align-items:center;height:36px;padding:0 12px;border:2px solid var(--panel);font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-size:0.9375rem;font-weight:700;letter-spacing:0.08em;color:var(--panel);text-decoration:none;}.ds-nav-cv:hover{background:var(--panel);color:var(--ink);}.ds-nav a:focus-visible{outline:2px solid var(--lantern);outline-offset:3px;}"
+    },
+    {
+      "name": "Plates",
+      "kind": "chip",
+      "refersTo": "plate-lit",
+      "description": "Static square label plates: lit (status, NOW), panel (category), unlit (in progress, badges).",
+      "html": "<div class=\"ds-plates\"><span class=\"ds-plate ds-plate-lit\">Now</span><span class=\"ds-plate ds-plate-panel\">Research</span><span class=\"ds-plate ds-plate-unlit\">In progress</span></div>",
+      "css": ":host{--asphalt:#0d0e10;--street:#16171a;--rule:#2a2c30;--steel:#4a4e54;--panel:#f4f1ea;--ink:#111214;--ink-soft:#4f4b45;--ash:#a8a49c;--neon:#c8241a;--lantern:#ff6b35;}.ds-plates{display:flex;gap:8px;flex-wrap:wrap;padding:16px;background:var(--asphalt);}.ds-plate{display:inline-flex;align-items:center;padding:2px 8px;font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-size:0.8125rem;font-weight:700;line-height:20px;letter-spacing:0.08em;border-radius:0;}.ds-plate-lit{background:var(--neon);color:var(--panel);}.ds-plate-panel{background:var(--panel);color:var(--ink);}.ds-plate-unlit{border:1px solid var(--steel);color:var(--ash);}"
+    },
+    {
+      "name": "Lightbox",
+      "kind": "card",
+      "refersTo": "lightbox",
+      "description": "A photograph mounted on an 8px off-white mat with a condensed caps caption.",
+      "html": "<figure class=\"ds-lightbox\"><div class=\"ds-lightbox-img\"></div><figcaption class=\"ds-lightbox-cap\">BSc (Eng) Electrical (Information) Engineering · Wits, 2025</figcaption></figure>",
+      "css": ":host{--asphalt:#0d0e10;--street:#16171a;--rule:#2a2c30;--steel:#4a4e54;--panel:#f4f1ea;--ink:#111214;--ink-soft:#4f4b45;--ash:#a8a49c;--neon:#c8241a;--lantern:#ff6b35;}.ds-lightbox{margin:0;max-width:320px;padding:8px;background:var(--panel);}.ds-lightbox-img{display:block;width:100%;aspect-ratio:16/10;background:var(--steel);}.ds-lightbox-cap{padding:8px 4px 2px;font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-size:0.8125rem;font-weight:600;line-height:1.375;letter-spacing:0.06em;color:var(--ink-soft);}"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "In-floor section title in League Gothic on a 2px off-white rule, with an optional count label.",
+      "html": "<div class=\"ds-section\"><h2 class=\"ds-section-title\">Experience</h2><span class=\"ds-section-meta\">4 roles</span></div>",
+      "css": ":host{--asphalt:#0d0e10;--street:#16171a;--rule:#2a2c30;--steel:#4a4e54;--panel:#f4f1ea;--ink:#111214;--ink-soft:#4f4b45;--ash:#a8a49c;--neon:#c8241a;--lantern:#ff6b35;}.ds-section{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:16px 0 0;border-top:2px solid var(--panel);background:var(--asphalt);color:var(--panel);}.ds-section-title{margin:0;font-family:'League Gothic','Arial Narrow',sans-serif;text-transform:uppercase;line-height:0.92;letter-spacing:0.01em;font-weight:400;font-size:3rem;}.ds-section-meta{font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-size:0.875rem;font-weight:600;letter-spacing:0.08em;color:var(--ash);}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Condensed caps link with a steel underline and arrow; turns lantern on hover.",
+      "html": "<a class=\"ds-text-link\" href=\"#\">Abstracts and status <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ":host{--asphalt:#0d0e10;--street:#16171a;--rule:#2a2c30;--steel:#4a4e54;--panel:#f4f1ea;--ink:#111214;--ink-soft:#4f4b45;--ash:#a8a49c;--neon:#c8241a;--lantern:#ff6b35;}.ds-text-link{display:inline-flex;align-items:center;gap:6px;font-family:'Sofia Sans Condensed','Sofia Sans',system-ui,sans-serif;text-transform:uppercase;font-weight:600;letter-spacing:0.06em;color:var(--panel);text-decoration:underline;text-decoration-color:var(--steel);text-decoration-thickness:1px;text-underline-offset:0.22em;transition:color 75ms,text-decoration-color 75ms;}.ds-text-link:hover{color:var(--lantern);text-decoration-color:var(--lantern);}.ds-text-link:focus-visible{outline:2px solid var(--lantern);outline-offset:3px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Signboard Canyon",
+    "overview": "The site is one building of lit signs read from a wet street at midnight. Every page is a signed floor (1F Research, 2F Projects, 3F About, 4F Record, 5F Contact), and the floor directory is the navigation: the Home spine, the top bar and the mobile menu all list the same floors. Signs are flat backlit off-white acrylic panels carrying heavy condensed gothic caps in near-black. A sign that is open, current or under the pointer snaps to solid neon red. A small lantern vermilion marks floor numbers, dates and current work. That is the whole vocabulary.\n\nThe system is flat, square and lit from within. There are no glows, no gradients, no translucent tints and no rounded corners; light is carried by solid fills, never by blur. Density is that of a street-facing directory: one identical sign module repeats as the page ruler, steel lines divide the ground, and long-form reading sits in a calm off-white on asphalt at a 68ch measure. The world replaced an earlier neon-and-glass portfolio that read as AI-generated; the answer to that is physical honesty, not ornament. Every label is a real name (a floor, a result, a year), never a decorative kicker.\n\nMotion is a building switching on, once. On Home the signs power on floor by floor from the ground sign upward with a short fluorescent flicker, and the wet-street reflection beneath the spine follows the hover state. Under reduced motion nothing animates. Page changes are a 160ms linear cut to black and back.",
+    "keyCharacteristics": [
+      "One sign module (floor cell, backlit panel, spec cell) repeated as the ruler for navigation and every page heading.",
+      "Lit state is a solid neon red panel; there is no other emphasis treatment.",
+      "Square corners everywhere; 1px steel frames and 2px off-white rules.",
+      "Condensed gothic display caps against a humanist sans for reading and a condensed sans for labels.",
+      "Flat surfaces only; the street reflection is the single gradient in the system, used as a mask.",
+      "One-time power-on flicker on Home, disabled under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Lit Means Open Rule",
+        "body": "Neon red is a state, not a decoration: it marks the open, current, hovered or focused floor and the single primary action. If a red surface does not mean \"this one\", it should not be red.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Glow Rule",
+        "body": "Light is carried by solid fills. No box-shadow glows, no text-shadow halos, no translucent tints of neon or lantern, no gradient fills.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Reds Rule",
+        "body": "Neon fills; lantern marks. Lantern never fills a panel and neon never sets small body-scale text on dark ground.",
+        "section": "colors"
+      },
+      {
+        "name": "The Caps Are Signs Rule",
+        "body": "League Gothic appears only on sign faces and sign-scale headings, always uppercase at line-height 0.92. It is never used for paragraphs, labels or buttons.",
+        "section": "typography"
+      },
+      {
+        "name": "The Honest Label Rule",
+        "body": "Every condensed caps label names a real thing: a floor, a year, a status, a count, a role. There are no eyebrows or kickers above headings; the floor sign is the heading's only preamble.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Acrylic Rule",
+        "body": "Surfaces never cast shadows. A state change is a fill change (off-white to neon red, outline to solid), executed in 75ms.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Gradient Rule",
+        "body": "The only gradient in the system is the reflection's fade mask. Do not use gradients as fills, borders, overlays or text effects anywhere else.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do open every page with its own floor sign, lit, at heading size, and keep the floor numbers 1F Research, 2F Projects, 3F About, 4F Record, 5F Contact consistent across spine, top bar and menu.",
+      "Do express every active, current, hovered or focused state as a solid neon red fill with off-white text, switched in 75ms.",
+      "Do keep all corners at 0px and all frames at 1px steel or 2px off-white.",
+      "Do set sign labels in League Gothic caps at line-height 0.92, and labels, buttons and specs in Sofia Sans Condensed caps at 0.06 to 0.08em tracking.",
+      "Do use lantern only for small marks: floor numbers, dates, highlight figures, icons, focus rings and link hover.",
+      "Do divide content with ruled rows instead of boxing it in cards.",
+      "Do gate the power-on flicker and any other motion behind prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't add glows, drop shadows, text halos, blur effects or translucent tints of the reds.",
+      "Don't use gradients anywhere except the street reflection's fade mask.",
+      "Don't round corners on any surface, button, plate or image.",
+      "Don't put eyebrows or kickers above headings; a floor sign or a real label is the only preamble.",
+      "Don't introduce colors outside the locked ten-color palette.",
+      "Don't use League Gothic for paragraphs, buttons or small labels.",
+      "Don't build glass cards or a split hero over a card row; the building directory is the structure."
+    ]
+  }
+}

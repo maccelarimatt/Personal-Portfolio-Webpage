@@ -1,80 +1,55 @@
 import classNames from 'classnames';
-import { motion, type HTMLMotionProps } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
-type Variant = 'primary' | 'ghost';
+type Variant = 'primary' | 'secondary';
 
-interface ButtonProps
-  extends Pick<HTMLMotionProps<'button'>, 'type' | 'disabled' | 'onClick' | 'onMouseEnter' | 'onMouseLeave'> {
+interface ButtonProps {
   label: string;
   variant?: Variant;
   icon?: ReactNode;
   href?: string;
   to?: string;
   target?: string;
+  download?: boolean;
+  className?: string;
 }
 
-const MotionLink = motion(Link);
-
-const baseClasses =
-  'relative inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
+const base =
+  'inline-flex h-12 items-center gap-2.5 px-5 font-label text-base font-bold uppercase tracking-[0.08em] no-underline transition-colors duration-75';
 
 const variants: Record<Variant, string> = {
-  primary:
-    'bg-gradient-to-r from-accent to-accent-strong text-white shadow-glow hover:brightness-110 active:scale-[0.98]',
-  ghost:
-    'border border-border/80 bg-surface/70 text-white hover:border-accent/60 hover:text-accent active:scale-[0.98]',
+  primary: 'bg-neon text-panel hover:bg-panel hover:text-ink',
+  secondary: 'border-2 border-panel text-panel hover:bg-panel hover:text-ink',
 };
 
-const Button = ({ label, variant = 'primary', icon, href, to, target, ...props }: ButtonProps) => {
+const Button = ({ label, variant = 'primary', icon, href, to, target, download, className }: ButtonProps) => {
+  const classes = classNames(base, variants[variant], className);
   const content = (
     <>
       <span>{label}</span>
-      {icon ?? <ArrowUpRight size={16} />}
+      {icon}
     </>
   );
 
   if (to) {
     return (
-      <MotionLink
-        to={to}
-        target={target}
-        className={classNames(baseClasses, variants[variant])}
-        whileHover={{ y: -1 }}
-        whileTap={{ scale: 0.98 }}
-      >
+      <Link to={to} className={classes}>
         {content}
-      </MotionLink>
-    );
-  }
-
-  if (href) {
-    return (
-      <motion.a
-        href={href}
-        target={target}
-        rel="noreferrer"
-        className={classNames(baseClasses, variants[variant])}
-        whileHover={{ y: -1 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        {content}
-      </motion.a>
+      </Link>
     );
   }
 
   return (
-    <motion.button
-      type="button"
-      {...props}
-      className={classNames(baseClasses, variants[variant])}
-      whileHover={{ y: -1 }}
-      whileTap={{ scale: 0.98 }}
+    <a
+      href={href}
+      target={target}
+      rel={target === '_blank' ? 'noreferrer' : undefined}
+      download={download || undefined}
+      className={classes}
     >
       {content}
-    </motion.button>
+    </a>
   );
 };
 

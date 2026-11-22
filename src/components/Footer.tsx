@@ -1,34 +1,35 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { profile } from '../data/profile';
 
-const socials = [
-  { href: profile.links.github, label: 'GitHub', icon: Github },
-  { href: profile.links.linkedin, label: 'LinkedIn', icon: Linkedin },
-  { href: `mailto:${profile.email}`, label: 'Email', icon: Mail },
+const links = [
+  { href: `mailto:${profile.email}`, label: 'Email', icon: Mail, external: false },
+  { href: profile.links.linkedin, label: 'LinkedIn', icon: Linkedin, external: true },
+  { href: profile.links.github, label: 'GitHub', icon: Github, external: true },
 ];
 
 const Footer = () => (
-  <footer className="border-t border-border/60 bg-surface/70 backdrop-blur">
-    <div className="container flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between">
+  <footer className="border-t border-steel bg-street">
+    <div className="container flex flex-col gap-8 py-10 md:flex-row md:items-end md:justify-between">
       <div>
-        <p className="text-lg font-semibold text-white">Matthew Maccelari</p>
-        <p className="text-sm text-muted">Optical communications, applied ML & radio systems · Johannesburg</p>
-        <p className="mt-2 text-xs text-muted">© {new Date().getFullYear()} Matthew Maccelari. All rights reserved.</p>
+        <p className="sign-text text-4xl text-panel">{profile.name}</p>
+        <p className="mt-2 text-ash">Optical communications, applied ML &amp; radio systems · {profile.location}</p>
+        <p className="mt-1 text-sm text-ash">© {new Date().getFullYear()} {profile.name}</p>
       </div>
-      <div className="flex items-center gap-3">
-        {socials.map((social) => (
-          <a
-            key={social.label}
-            href={social.href}
-            target="_blank"
-            rel="noreferrer"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-surface/80 text-white transition hover:border-accent/60 hover:text-accent"
-          >
-            <social.icon size={18} />
-            <span className="sr-only">{social.label}</span>
-          </a>
+      <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+        {links.map((link) => (
+          <li key={link.label}>
+            <a
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noreferrer' : undefined}
+              className="flex h-11 items-center gap-2 border border-steel px-4 font-label font-bold uppercase tracking-[0.08em] text-panel no-underline transition-colors duration-75 hover:border-panel hover:bg-panel hover:text-ink"
+            >
+              <link.icon size={17} strokeWidth={2} aria-hidden="true" />
+              {link.label}
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   </footer>
 );

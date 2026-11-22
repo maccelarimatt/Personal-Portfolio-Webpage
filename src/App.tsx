@@ -1,13 +1,12 @@
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, MotionConfig } from 'framer-motion';
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import { AccentProvider } from './context/AccentContext';
 import MainLayout from './layouts/MainLayout';
 import AboutPage from './pages/About';
+import CompetitionsPage from './pages/Competitions';
 import ContactPage from './pages/Contact';
 import HomePage from './pages/Home';
 import PapersPage from './pages/Papers';
 import ProjectsPage from './pages/Projects';
-import CompetitionsPage from './pages/Competitions';
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -31,11 +30,11 @@ const AppRoutes = () => {
 };
 
 const App = () => (
-  <AccentProvider>
+  <MotionConfig reducedMotion="user">
     <BrowserRouter>
       <AppRoutes />
     </BrowserRouter>
-  </AccentProvider>
+  </MotionConfig>
 );
 
 export default App;

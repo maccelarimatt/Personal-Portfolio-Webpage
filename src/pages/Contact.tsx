@@ -1,152 +1,109 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Send } from 'lucide-react';
+import { Check, Copy, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { useState } from 'react';
-import type { FormEvent } from 'react';
 import Button from '../components/Button';
 import PageTransition from '../components/PageTransition';
-import Section from '../components/Section';
+import { PageHeader } from '../components/Section';
 import { profile } from '../data/profile';
 
-interface FormState {
-  name: string;
-  email: string;
-  message: string;
-}
+const channels = [
+  { label: 'LinkedIn', value: 'matthew-maccelari', href: profile.links.linkedin, icon: Linkedin },
+  { label: 'GitHub', value: 'maccelarimatt', href: profile.links.github, icon: Github },
+];
 
 const ContactPage = () => {
-  const [form, setForm] = useState<FormState>({ name: '', email: '', message: '' });
-  const [errors, setErrors] = useState<Partial<FormState>>({});
-  const [sent, setSent] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const validate = () => {
-    const nextErrors: Partial<FormState> = {};
-    if (!form.name.trim()) nextErrors.name = 'Name is required';
-    if (!form.email.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email))
-      nextErrors.email = 'Valid email required';
-    if (!form.message.trim()) nextErrors.message = 'Message cannot be empty';
-    setErrors(nextErrors);
-    return Object.keys(nextErrors).length === 0;
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!validate()) return;
-    const subject = encodeURIComponent(`Portfolio enquiry from ${form.name}`);
-    const body = encodeURIComponent(`${form.message}
-
-${form.name}
-${form.email}`);
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 3200);
-    setForm({ name: '', email: '', message: '' });
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2200);
+    } catch {
+      window.location.href = `mailto:${profile.email}`;
+    }
   };
 
   return (
     <PageTransition>
-      <Section
+      <PageHeader
+        floor="5F"
         title="Contact"
-        eyebrow="Let's talk"
-        description="Get in touch about research collaboration, optical or radio systems work, or engineering roles."
-        className="pb-16"
-      >
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-2xl border border-border/70 bg-surface/70 p-6 shadow-card backdrop-blur">
-            <h3 className="text-xl font-semibold text-white">Send a message</h3>
-            <form className="mt-4 space-y-4" onSubmit={handleSubmit} noValidate>
-              <div>
-                <label className="text-xs uppercase tracking-[0.2em] text-accent">Name</label>
-                <input
-                  className="mt-2 w-full rounded-xl border border-border/70 bg-transparent px-3 py-3 text-white outline-none ring-0 transition focus:border-accent/80"
-                  value={form.name}
-                  onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
-                  placeholder="Your name"
-                />
-                {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
-              </div>
-              <div>
-                <label className="text-xs uppercase tracking-[0.2em] text-accent">Email</label>
-                <input
-                  className="mt-2 w-full rounded-xl border border-border/70 bg-transparent px-3 py-3 text-white outline-none ring-0 transition focus:border-accent/80"
-                  value={form.email}
-                  onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
-                  placeholder="name@email.com"
-                  type="email"
-                />
-                {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
-              </div>
-              <div>
-                <label className="text-xs uppercase tracking-[0.2em] text-accent">Message</label>
-                <textarea
-                  className="mt-2 h-32 w-full rounded-xl border border-border/70 bg-transparent px-3 py-3 text-white outline-none ring-0 transition focus:border-accent/80"
-                  value={form.message}
-                  onChange={(e) => setForm((prev) => ({ ...prev, message: e.target.value }))}
-                  placeholder="What would you like to build?"
-                />
-                {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
-              </div>
-              <div className="flex flex-wrap items-center gap-3">
-                <Button label="Send message" icon={<Send size={16} />} type="submit" />
-                <a
-                  className="text-sm font-semibold text-accent underline-offset-4 hover:underline"
-                  href={`mailto:${profile.email}`}
-                >
-                  Or email {profile.email}
-                </a>
-              </div>
-            </form>
-            <AnimateToast visible={sent} />
-          </div>
+        intro="Get in touch about research collaboration, optical or radio systems work, or engineering roles."
+      />
 
-          <div className="space-y-4 rounded-2xl border border-border/70 bg-gradient-to-br from-white/5 to-transparent p-6 shadow-card backdrop-blur">
-            <h3 className="text-xl font-semibold text-white">Stay connected</h3>
-            <p className="text-muted">
-              The form opens your email app with the message ready to send. Please include context and timelines
-              so I can reply with the most relevant work.
-            </p>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {[
-                { label: 'GitHub', href: profile.links.github, icon: Github },
-                { label: 'LinkedIn', href: profile.links.linkedin, icon: Linkedin },
-                { label: 'Email', href: `mailto:${profile.email}`, icon: Mail },
-              ].map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 rounded-xl border border-border/60 bg-white/5 px-4 py-3 text-white transition hover:border-accent/60 hover:text-accent"
-                >
-                  <item.icon size={18} />
-                  {item.label}
-                </a>
-              ))}
-            </div>
-            <div className="rounded-xl border border-accent/40 bg-accent-soft px-4 py-3 text-sm text-white">
-              Open to research collaborations in free-space optics, channel modelling and applied ML, and to conversations about future engineering roles.
-            </div>
+      <section className="container pb-20">
+        <div className="border-t-2 border-panel pt-10">
+          <a
+            href={`mailto:${profile.email}`}
+            className="sign-text block text-[clamp(2rem,9.5vw,6rem)] text-panel no-underline transition-colors duration-75 [overflow-wrap:anywhere] hover:text-lantern"
+          >
+            {profile.email}
+          </a>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Button label="Write an email" href={`mailto:${profile.email}`} icon={<Mail size={18} strokeWidth={2.25} />} />
+            <button
+              type="button"
+              onClick={copyEmail}
+              className="inline-flex h-12 items-center gap-2.5 border-2 border-panel px-5 font-label text-base font-bold uppercase tracking-[0.08em] text-panel transition-colors duration-75 hover:bg-panel hover:text-ink"
+            >
+              {copied ? 'Copied' : 'Copy address'}
+              {copied ? <Check size={18} strokeWidth={2.5} /> : <Copy size={18} strokeWidth={2.25} />}
+            </button>
+            <span role="status" className="sr-only">
+              {copied ? 'Email address copied to clipboard' : ''}
+            </span>
           </div>
         </div>
-      </Section>
+
+        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+          <ul className="m-0 list-none border-t border-rule p-0">
+            {channels.map((c) => (
+              <li key={c.label} className="border-b border-rule">
+                <a
+                  href={c.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center justify-between gap-4 py-5 text-panel no-underline"
+                >
+                  <span className="flex items-center gap-4">
+                    <c.icon size={22} strokeWidth={2} aria-hidden="true" className="text-lantern" />
+                    <span className="sign-text text-4xl transition-colors duration-75 group-hover:text-lantern">{c.label}</span>
+                  </span>
+                  <span className="label text-ash">{c.value}</span>
+                </a>
+              </li>
+            ))}
+            <li className="border-b border-rule">
+              <a
+                href={profile.links.cv}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center justify-between gap-4 py-5 text-panel no-underline"
+              >
+                <span className="flex items-center gap-4">
+                  <Download size={22} strokeWidth={2} aria-hidden="true" className="text-lantern" />
+                  <span className="sign-text text-4xl transition-colors duration-75 group-hover:text-lantern">CV</span>
+                </span>
+                <span className="label text-ash">PDF</span>
+              </a>
+            </li>
+          </ul>
+
+          <div className="self-start bg-panel p-6 text-ink md:p-8">
+            <p className="sign-text text-4xl">Open to</p>
+            <p className="mt-3 text-lg leading-relaxed">
+              Research collaborations in free-space optics, channel modelling and applied ML, and conversations about
+              future engineering roles.
+            </p>
+            <p className="mt-4 text-ink-soft">
+              Based in {profile.location}. Please include context and timelines so I can reply with the most relevant
+              work.
+            </p>
+          </div>
+        </div>
+      </section>
     </PageTransition>
   );
 };
-
-const AnimateToast = ({ visible }: { visible: boolean }) => (
-  <AnimatePresence>
-    {visible && (
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.25 }}
-        className="mt-3 inline-flex items-center gap-2 rounded-full border border-accent/60 bg-accent-soft px-4 py-2 text-sm font-semibold text-white"
-      >
-        <Send size={16} />
-        Opening your email app…
-      </motion.div>
-    )}
-  </AnimatePresence>
-);
 
 export default ContactPage;

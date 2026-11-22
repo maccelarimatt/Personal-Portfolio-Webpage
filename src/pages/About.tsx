@@ -1,133 +1,104 @@
-import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import Button from '../components/Button';
-import Card from '../components/Card';
+import EntryList from '../components/EntryList';
+import Lightbox from '../components/Lightbox';
 import PageTransition from '../components/PageTransition';
-import Section from '../components/Section';
-import Tag from '../components/Tag';
-import Timeline from '../components/Timeline';
+import Section, { PageHeader } from '../components/Section';
 import { education, experience, outreach, profile, skills } from '../data/profile';
 
 const skillGroups = [
   { label: 'Programming', items: skills.programming },
   { label: 'Domains', items: skills.domains },
-  { label: 'Tools & Platforms', items: skills.tools },
+  { label: 'Tools & platforms', items: skills.tools },
 ];
 
 const AboutPage = () => (
   <PageTransition>
-    <Section title="About" eyebrow="Who I am" description={profile.headline}>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-[1.3fr_1fr]">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="rounded-2xl border border-border/70 bg-surface/70 p-6 shadow-card backdrop-blur"
-        >
-          <div className="mb-5 flex items-center gap-4">
-            <img
-              src={profile.photos.headshot}
-              alt="Matthew Maccelari"
-              width={80}
-              height={80}
-              className="h-20 w-20 rounded-full border-2 border-accent/60 object-cover shadow-glow"
-            />
-            <div>
-              <p className="text-xl font-semibold text-white">{profile.name}</p>
-              <p className="text-sm text-muted">{profile.location}</p>
-            </div>
-          </div>
-          <p className="text-lg text-white">{profile.summary}</p>
-          <p className="mt-3 text-muted">{profile.summaryExtra}</p>
-          <p className="mt-3 text-muted">
-            Away from the lab I have represented South Africa in kayak sprint, earning Protea colours at the 2021
-            Junior and U23 World Championships.
+    <PageHeader floor="3F" title="About">
+      <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-[14rem_minmax(0,1fr)] lg:grid-cols-[16rem_minmax(0,1fr)_18rem] lg:gap-12">
+        <Lightbox
+          src={profile.photos.headshot}
+          alt="Matthew Maccelari"
+          aspect="portrait"
+          eager
+          caption={profile.location}
+          className="max-w-[16rem] self-start"
+        />
+        <div className="max-w-measure">
+          <p className="text-xl leading-relaxed text-panel">{profile.summary}</p>
+          <p className="mt-4 text-lg text-ash">{profile.summaryExtra}</p>
+          <p className="mt-4 text-lg text-ash">
+            Away from the lab I have represented South Africa in kayak sprint, earning Protea colours at the 2021 Junior
+            and U23 World Championships.
           </p>
-          <div className="mt-5">
+          <div className="mt-8">
             <Button
               label="Download CV"
+              variant="secondary"
               href={profile.links.cv}
               target="_blank"
-              icon={<Download size={16} />}
-              variant="ghost"
+              icon={<Download size={18} strokeWidth={2.25} />}
             />
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, delay: 0.05 }}
-          className="rounded-2xl border border-border/70 bg-gradient-to-br from-white/5 to-transparent p-6 shadow-card backdrop-blur"
-        >
-          <h3 className="text-lg font-semibold text-white">Skills snapshot</h3>
-          <div className="mt-3 space-y-3 text-sm text-muted">
-            {skillGroups.map((group) => (
-              <div key={group.label}>
-                <p className="text-xs uppercase tracking-[0.2em] text-accent">{group.label}</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {group.items.map((skill) => (
-                    <Tag key={skill}>{skill}</Tag>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        </div>
+        <dl className="m-0 border-t-2 border-panel md:col-span-2 lg:col-span-1">
+          {skillGroups.map((group) => (
+            <div key={group.label} className="border-b border-rule py-4">
+              <dt className="label text-lantern">{group.label}</dt>
+              <dd className="m-0 mt-1.5 leading-relaxed text-panel">{group.items.join(' · ')}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-    </Section>
+    </PageHeader>
 
-    <Section
-      title="Experience"
-      eyebrow="Research & industry"
-      description="Research, production software engineering and teaching."
-    >
-      <Timeline
+    <Section title="Experience" meta="Research · industry · teaching">
+      <EntryList
         items={experience.map((item) => ({
+          id: `${item.organisation}-${item.period}`,
+          period: item.period,
           title: item.organisation,
           subtitle: `${item.role} · ${item.location}`,
-          period: item.period,
-          description: item.points[0],
           badge: item.badge,
           image: item.image,
-          extra:
-            item.points.length > 1 ? (
-              <ul className="list-disc space-y-2 pl-5 text-white/80">
-                {item.points.slice(1).map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            ) : undefined,
+          body: (
+            <ul className="m-0 list-none space-y-3 p-0">
+              {item.points.map((point) => (
+                <li key={point} className="relative pl-5 before:absolute before:left-0 before:top-[0.7em] before:h-1.5 before:w-1.5 before:bg-lantern">
+                  {point}
+                </li>
+              ))}
+            </ul>
+          ),
         }))}
       />
     </Section>
 
-    <Section title="Education" eyebrow="Path so far">
-      <Timeline
+    <Section title="Education">
+      <EntryList
         items={education.map((item) => ({
+          id: `${item.program}-${item.period}`,
+          period: item.period,
           title: item.institution,
           subtitle: `${item.program} · ${item.location}`,
-          period: item.period,
-          description: item.details,
           badge: item.badge,
           image: item.image,
+          body: <p className="m-0">{item.details}</p>,
         }))}
       />
     </Section>
 
-    <Section
-      title="Science Outreach"
-      eyebrow="Community"
-      description="Showing schoolchildren and the public what light can do for communication."
-      className="pb-20"
-    >
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <Section title="Science outreach" className="pb-20">
+      <p className="mb-10 max-w-measure text-lg text-ash">
+        Showing schoolchildren and the public what light can do for communication.
+      </p>
+      <div className="grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2">
         {outreach.map((item) => (
-          <Card key={item.title} title={item.title} subtitle="Outreach" image={item.image}>
-            {item.description}
-          </Card>
+          <article key={item.title}>
+            {item.image && <Lightbox src={item.image.src} alt={item.image.alt} aspect="wide" />}
+            <h3 className="mt-6 text-2xl font-bold leading-snug">{item.title}</h3>
+            <p className="mt-3 max-w-measure text-panel">{item.description}</p>
+          </article>
         ))}
       </div>
     </Section>
